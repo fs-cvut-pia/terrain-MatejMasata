@@ -5,6 +5,8 @@
 #include <string>
 
 // Include files of your path classes will need to be added here
+#include "AirplanePath.h"
+#include "BoatPath.h"
 
 Point read_coordinates(int argc, char *argv[], int i_option) {
     Point p;
@@ -33,8 +35,14 @@ int main(int argc, char *argv[]) {
     Point start = read_coordinates(argc,argv,2);
     Point finish = read_coordinates(argc,argv,4);
 
-    std::vector<Path*> paths = { //new YourPath(m,"MyPathName",start,finish), ...
+    //std::vector<Path*> paths = { //new YourPath(m,"MyPathName",start,finish), ...
         // Here add the list of dynamically created classes with path finding algorithms
+    //};
+
+
+    std::vector<Path*> paths = {
+        new AirplanePath(m, "AirplanePath", start, finish),
+        new BoatPath(m, "BoatPath", start, finish)
     };
 
     for (auto& p : paths) {
