@@ -25,10 +25,16 @@ void Path::printStats() const {
         if (map.alt(u) < 0) water = true;
         length += (u - u_prev).length();
         alt += std::abs(map.alt(u) - map.alt(u_prev));
-        if (map.alt(u) > max_alt) max_alt = map.alt(u);
+        if (map.alt(u) > max_alt){ 
+            max_alt = map.alt(u);
+            //std::cout << "New max. elevation: " << max_alt << " m" << std::endl;
+            //std::cout << "New max. elevation coordinates: [" << u.x << ", " << u.y << "]" << std::endl;
+        }
+        
     }
 
-    std::cout << "Path designated start = [" << start.x << ", " << start.y << "], finish = [" << finish.x << ", " << finish.y << "]" << std::endl;
+    std::cout << "Path designated start = [" << start.x << ", " << start.y << "],finish = [" << finish.x << ", " << finish.y << "]" << std::endl;
+    std::cout <<  "Start elevation = "<< map.alt(start) <<" meters, finish elevation = " << map.alt(finish) << " meters" << std::endl;
 
     if (path[0] != start)
         std::cout << "First point on path [" << path[0].x << ", " << path[0].y << "] does not correspond to the designated starting point [" << start.x << ", " << start.y << "] !" << std::endl;

@@ -1,3 +1,39 @@
+# ŘEŠENÍ:
+
+Vytvořil jsem dvě třídy pro **letadlo** a **loď**. Obě třídy dědí funkcionalitu ze základní třídy **Path**. Je v nich implementována metoda find()
+
+- AirplanePath
+- BoatPath
+
+## LETADLO
+Nejkratší cesta mezi dvěma body nehledě na nadmořskou výšku
+
+Výsledek nemusí být "přímka" vzhledem k limitaci směrů pohybu v mapě - podobné vzdálenosti v Manhattanské metrice - více možností pro nejkratší vzdálenost
+
+Našel jsem, že by se mohlo jednat o **[Chebyshev distance](https://en.wikipedia.org/wiki/Chebyshev_distance)**
+
+![Výsledná trasa letadla](/Airplane_Path.png "Výsledná trasa letadla")
+
+## LOĎ
+Nejkratší cesta pouze po polích, kde výška < 0 (kromě výchozího a cílového bodu)
+
+Použil jsem **[Dijkstrův algoritmus ](https://cs.wikipedia.org/wiki/Dijkstr%C5%AFv_algoritmus)**
+
+![Výsledná trasa lodi](/Boat_Path.png "Výsledná trasa lodi")
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ePPRhryX)
 # Hledání cesty v terénní mapě
 
 Máte zde připravený základ kódu pro práci s terénní mapou. Ta je reprezentována maticí 256x256 celých čísel představující nadmořskou výšku v metrech (soubor *terrain.dat*).
@@ -24,3 +60,4 @@ Skript `./plot_path.py terrain.dat cesta.dat` vykreslí terénní mapu a do ní 
 Skript `./generate_terrain.py` vygeneruje novou náhodnou terénní mapu. 
 
 Oba skripty vyžadují Python 3 a nainstalované knihovny *numpy, matplotlib*, generátor navíc ještě knihovnu *noise*.
+
